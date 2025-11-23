@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gelateria Dolce Velutto &reg;</title>
+  <meta name="description" content="Descubra os sabores irresistíveis da Gelateria Dolce Velutto. Cardápio com sorvetes tradicionais, premium e especiais.">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/x-icon" href="IMG/Logo_Mobile.png">
+</head>
+<body>
+  <!-- HEADER REORGANIZADO -->
+  <header role="banner" class="header">
+    <!-- Topo: Logo -->
+    <div class="header-top">
+      <img src="IMG/Logo_Mobile.png" class="logo" 
+           alt="Gelateria Dolce Velutto - Logo" 
+           aria-label="Logo da Gelateria Dolce Velutto">
+    </div>
+
+    <!-- Centro: Nome da Gelateria -->
+    <div class="header-center">
+      <h1>Dolce Velutto</h1>
+    </div>
+
+    <!-- Base: Filtro de Categorias -->
+    <div class="header-bottom">
+      <!-- Base: Caixa de Pesquisa e Filtro de Categorias -->
+<div class="header-bottom">
+  <!-- CAIXA DE PESQUISA COM VOZ -->
+  <div class="search-container">
+    <label for="campoBusca" class="sr-only">Buscar sabores:</label>
+    <input 
+      type="text" 
+      id="campoBusca" 
+      class="search-input" 
+      placeholder="Buscar sabores... ou clique no microfone"
+      aria-label="Campo de busca para procurar sabores. Use o microfone para busca por voz."
+    >
+    <div class="search-buttons">
+      <button id="btnLimparBusca" class="btn-limpar-busca" aria-label="Limpar busca">
+        ×
+      </button>
+      <button id="btnVoz" class="btn-voz" aria-label="Ativar busca por voz">
+        🎤
+      </button>
+    </div>
+    <div id="vozStatus" class="voz-status" aria-live="polite"></div>
+  </div>
+  
+      <label for="filtro" class="sr-only">Filtrar sabores por categoria:</label>
+      <select id="filtro" aria-label="Filtrar sabores por categoria">
+        <option value="todos">Todos os sabores</option>
+        <option value="premium">Premium</option>
+        <option value="doce-de-leite">Doce de Leite</option>
+        <option value="cremes">Cremes</option>
+        <option value="frutais">Frutais</option>
+        <option value="chocolates">Chocolates</option>
+      </select>
+    </div>
+
+    <!-- Botões flutuantes -->
+    <button id="btnAcessibilidade" class="btn-flutuante flutuante-acessibilidade" aria-label="Abrir menu de acessibilidade">
+      ♿
+    </button>
+
+    <button id="darkModeToggle" class="btn-flutuante flutuante-tema" aria-label="Alternar modo escuro/claro">
+      🌙
+    </button>
+
+    <!-- Menu Acessibilidade -->
+    <div id="menuAcessibilidade" class="menu-flutuante" role="menu" aria-label="Menu de acessibilidade">
+      <button class="menu-item" data-acao="aumentar-fonte" aria-label="Aumentar tamanho da fonte">
+        <span class="menu-icone">A+</span>
+        <span class="menu-texto">Texto Maior</span>
+      </button>
+      <button class="menu-item" data-acao="reduzir-fonte" aria-label="Reduzir tamanho da fonte">
+        <span class="menu-icone">A-</span>
+        <span class="menu-texto">Texto Menor</span>
+      </button>
+      <button class="menu-item" data-acao="alto-contraste" aria-label="Alternar alto contraste">
+        <span class="menu-icone">⚫</span>
+        <span class="menu-texto">Alto Contraste</span>
+      </button>
+      <button class="menu-item" data-acao="mostrar-tutorial" aria-label="Mostrar tutorial novamente">
+        <span class="menu-icone">❓</span>
+        <span class="menu-texto">Ajuda</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main id="produtos-container" role="main" aria-label="Cardápio de sabores">
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Gelateria Dolce Velutto — Feito com amor</p>
+  </footer>
+
+  <!-- MODAL PRODUTO -->
+  <div id="modalProduto" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo" aria-describedby="modalDescricao">
+    <div class="modal-content">
+      <button class="fechar-modal" aria-label="Fechar detalhes do produto">&times;</button>
+      <div class="modal-container">
+        <div class="modal-esquerda">
+          <img id="modal-img" class="modal-imagem" alt="" src="">
+          <p id="modalPreco" class="modal-preco"></p>
+        </div>
+        <div class="modal-direita">
+          <h2 id="modalTitulo" class="modal-titulo"></h2>
+          <p id="modalDescricao" class="modal-descricao"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TUTORIAL ACESSIBILIDADE -->
+  <div id="tutorialAcessibilidade" class="tutorial-modal modal" role="dialog" aria-labelledby="tutorialTitulo" aria-modal="true">
+    <div class="tutorial-content modal-content">
+      <button class="fechar-tutorial fechar-modal" aria-label="Fechar tutorial de acessibilidade">&times;</button>
+      <h2 id="tutorialTitulo">Dicas de Acessibilidade</h2>
+      <div class="tutorial-dicas">
+        <div class="dica-item">
+          <span class="dica-icone">👆</span>
+          <div class="dica-texto">
+            <h3>Toque Ampliado</h3>
+            <p>Áreas de toque grandes para facilitar a seleção</p>
+          </div>
+        </div>
+        <div class="dica-item">
+          <span class="dica-icone">🎮</span>
+          <div class="dica-texto">
+            <h3>Navegação por Voz</h3>
+            <p>Use "Ok Google" ou "Siri" para navegar</p>
+          </div>
+        </div>
+        <div class="dica-item">
+          <span class="dica-icone">⌨️</span>
+          <div class="dica-texto">
+            <h3>Teclado Externo</h3>
+            <p>Conecte um teclado Bluetooth para navegar</p>
+          </div>
+        </div>
+        <div class="dica-item">
+          <span class="dica-icone">👁️</span>
+          <div class="dica-texto">
+            <h3>Toque Longo</h3>
+            <p>Mantenha pressionado para opções extras</p>
+          </div>
+        </div>
+      </div>
+      <div class="tutorial-acoes">
+        <button id="btnEntendi" class="botao-primario">Entendi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+<link rel="manifest" href="manifest.json">
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+</script>
+
