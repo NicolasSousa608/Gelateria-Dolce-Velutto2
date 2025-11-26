@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "Minha PWA",
   "short_name": "PWA",
@@ -18,3 +19,21 @@
     }
   ]
 }
+=======
+{
+  "name": "Gelateria Dolce Velutto",
+  "short_name": "Gelateria",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffb6c1",
+  "theme_color": "#ffb6c1",
+  "description": "Descubra os sabores irresistíveis da nossa Gelateria",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/NicolasSousa608/NK.github.io/refs/heads/main/Logo_Mobile.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ]
+}
+>>>>>>> c79f760563c5b503ccc9465b6c79d7183f095c0c
